@@ -18,15 +18,13 @@ namespace WindowsFormsApp2
             InitializeComponent();
         }
 
-        private void label3_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void RegisterBtn_Click(object sender, EventArgs e)
         {
-       
-                  
             string userName = txtUsername.Text;
             string lastName = txtLastname.Text;
             string firstName = txtFirstname.Text;
@@ -38,27 +36,27 @@ namespace WindowsFormsApp2
             if (userName.Length <= 3)
             {
                 sb.AppendLine("Username should be longer");
-                
+
             }
             if (firstName.Length <= 3)
             {
                 sb.AppendLine("First name should be longer");
-                
+
             }
             if (lastName.Length <= 3)
             {
                 sb.AppendLine("Last Name should be longer");
-                
+
             }
             if (password.Length <= 3)
             {
                 sb.AppendLine("Password should be longer");
-                
+
             }
             if (email.Length <= 7)
             {
                 sb.AppendLine("E-mail should be longer");
-                
+
             }
             if (password != confirmPassword)
             {
@@ -72,24 +70,22 @@ namespace WindowsFormsApp2
 
                 using (sqlCon)
                 {
-                    SqlCommand sqlCom = new SqlCommand("insert into CarRenting.dbo.accounts (firstname,lastname,username,password) values (@firstname, @lastname, @username, @password)", sqlCon);
-                    sqlCom.Parameters.AddWithValue("@firstname", txtFirstname.Text);
-                    sqlCom.Parameters.AddWithValue("@lastname", txtLastname.Text);
-                    sqlCom.Parameters.AddWithValue("@username", txtUsername.Text);
-                    sqlCom.Parameters.AddWithValue("@password", txtPassword.Text);
+                    SqlCommand sqlCom = new SqlCommand("insert into CarRenting.dbo.accounts (firstname,lastname,username,password, email) values (@firstname, @lastname, @username, @password, @email)", sqlCon);
+                    sqlCom.Parameters.AddWithValue("@firstname", firstName);
+                    sqlCom.Parameters.AddWithValue("@lastname", lastName);
+                    sqlCom.Parameters.AddWithValue("@username", userName);
+                    sqlCom.Parameters.AddWithValue("@password", password);
+                    sqlCom.Parameters.AddWithValue("@email", email.ToString());
                     sqlCom.ExecuteNonQuery();
-
                 }
             }
             else
             {
                 MessageBox.Show(sb.ToString());
             }
-                
-
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void ClearBtn_Click(object sender, EventArgs e)
         {
             txtUsername.Clear();
             txtFirstname.Clear();
@@ -99,10 +95,10 @@ namespace WindowsFormsApp2
             txtEmail.Clear();
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void BackBtn_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Form1 form = new Form1();
+            LoginForm form = new LoginForm();
             form.Closed += (s, args) => this.Close();
             form.Show();
         }

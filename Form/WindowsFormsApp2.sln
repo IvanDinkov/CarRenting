@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27004.2010
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsFormsApp2", "WindowsFormsApp2\WindowsFormsApp2.csproj", "{86EECBFA-2695-462A-841B-4CD647C42D67}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Visual", "WindowsFormsApp2\Visual.csproj", "{86EECBFA-2695-462A-841B-4CD647C42D67}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "Data\Data.csproj", "{D230CA2C-52ED-4A40-9971-324DF9DD8BD4}"
 EndProject
