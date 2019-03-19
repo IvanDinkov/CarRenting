@@ -33,11 +33,11 @@ namespace WindowsFormsApp2
             string confirmPassword = txtConfPassword.Text;
             StringBuilder sb = new StringBuilder();
 
-            if (userName.Length <= 3)
+            if (userName.Length <= 3 || userName == "")
             {
-                sb.AppendLine("Username should be longer");
-
+              sb.AppendLine("Username should be longer");
             }
+           
             if (firstName.Length <= 3)
             {
                 sb.AppendLine("First name should be longer");
@@ -78,6 +78,15 @@ namespace WindowsFormsApp2
                     sqlCom.Parameters.AddWithValue("@email", email.ToString());
                     sqlCom.ExecuteNonQuery();
                 }
+
+                MessageBox.Show("Registered sucessfully!");
+
+                this.Hide();
+                LoginForm form = new LoginForm();
+                form.Closed += (s, args) => this.Close();
+                form.Show();
+
+
             }
             else
             {
