@@ -8,6 +8,6 @@ namespace Data
 {
     public static class Connection
     {
-        public const string CONNECTION_STRING = "Server=DESKTOP-BDTJV1C\\SQLEXPRESS;Database=CarRenting;Integrated Security=true";
+        public const string CONNECTION_STRING = "Server=DESKTOP-KM3FH4G\\SQLEXPRESS;Database=CarRenting;Integrated Security=true";
     }
 }

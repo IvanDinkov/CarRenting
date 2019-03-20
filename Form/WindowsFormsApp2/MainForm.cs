@@ -16,36 +16,42 @@ namespace WindowsFormsApp2
         {
             InitializeComponent();
         }
-
+        private int counter = 0;
+        Timer timer = new Timer();
+        Image[] imageCollection = new Image[5];
         private void MainForm_Load(object sender, EventArgs e)
         {
-            this.BackgroundImage = Properties.Resources.io;
-            this.BackgroundImageLayout = ImageLayout.Stretch;
-            InitializeComponent();
-            Timer tm = new Timer();
-            tm.Interval = 20000;
-            tm.Tick += new EventHandler(changeImage);
-            tm.Start();
-
-     
+            backgroundImageLoader();
+            this.BackgroundImage = imageCollection[3];
+            timer.Tick += new System.EventHandler(OnTimerEvent);
+            TimerSet();
         }
-
-        private void changeImage(object sender, EventArgs e)
+        private void OnTimerEvent(object sender, EventArgs e)
         {
-            List<Bitmap> bt = new List<Bitmap>();
-            bt.Add(Properties.Resources.images);
-            bt.Add(Properties.Resources.io);
-            bt.Add(Properties.Resources._1);
-            int index = DateTime.Now.Second % bt.Count;
-            this.BackgroundImage = bt[index];
-            this.BackgroundImageLayout = ImageLayout.Stretch;
+            this.BackgroundImage = imageCollection[counter];
+            counter++;
+            countChecker();
+            TimerSet();
         }
-
-        private void timer1_Tick(object sender, EventArgs e)
+        private void TimerSet()
         {
-
+            timer.Interval = 10000;
+            timer.Start();
         }
-
+        private void backgroundImageLoader()
+        {
+            for (int i = 0; i < 4; i++)
+            {
+                imageCollection[i] = Image.FromFile($"C:\\Users\\kinib\\Desktop\\CarProject\\CarRenting\\Images\\MainForm Backgrounds\\Image{i}.jpg");
+            }
+        }
+        private void countChecker()
+        {
+            if (counter > 3)
+            {
+                counter = 0;
+            }
+        }
         private void button1_Click(object sender, EventArgs e)
         {
             this.Hide();

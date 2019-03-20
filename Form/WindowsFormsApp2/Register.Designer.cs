@@ -66,6 +66,7 @@
             // 
             this.txtConfPassword.Location = new System.Drawing.Point(212, 177);
             this.txtConfPassword.Name = "txtConfPassword";
+            this.txtConfPassword.PasswordChar = '*';
             this.txtConfPassword.Size = new System.Drawing.Size(122, 20);
             this.txtConfPassword.TabIndex = 27;
             // 
@@ -73,6 +74,7 @@
             // 
             this.txtPassword.Location = new System.Drawing.Point(212, 139);
             this.txtPassword.Name = "txtPassword";
+            this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(122, 20);
             this.txtPassword.TabIndex = 26;
             // 
@@ -193,6 +195,7 @@
             this.Controls.Add(this.ClearBtn);
             this.Name = "Register";
             this.Text = "Register";
+            this.Load += new System.EventHandler(this.Register_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
