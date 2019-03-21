@@ -40,9 +40,9 @@ namespace WindowsFormsApp2
         }
         private void backgroundImageLoader()
         {
-            for (int i = 0; i < 4; i++)
+            for (int i = 0; i < 3; i++)
             {
-                imageCollection[i] = Image.FromFile($"C:\\Users\\kinib\\Desktop\\CarProject\\CarRenting\\Images\\MainForm Backgrounds\\Image{i}.jpg");
+                imageCollection[i] = Image.FromFile($"C:\\Users\\User\\Desktop\\zdr0\\CarRenting\\Images\\MainForm Backgrounds\\Image{i}.jpg");
             }
         }
         private void countChecker()
@@ -58,6 +58,12 @@ namespace WindowsFormsApp2
             LoginForm form = new LoginForm();
             form.Closed += (s, args) => this.Close();
             form.Show();
+        }
+
+        private void buttonAddCar_Click(object sender, EventArgs e)
+        {
+            Cars cars = new Cars();
+            cars.Show();
         }
     }
 }
