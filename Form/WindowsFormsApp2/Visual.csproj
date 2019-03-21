@@ -118,6 +118,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Business\Business.csproj">
+      <Project>{be75a8a2-3c4e-4020-af89-6f150df05c55}</Project>
+      <Name>Business</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Data\Data.csproj">
       <Project>{d230ca2c-52ed-4a40-9971-324df9dd8bd4}</Project>
       <Name>Data</Name>

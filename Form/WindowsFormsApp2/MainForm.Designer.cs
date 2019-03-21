@@ -44,11 +44,11 @@
             // 
             // buttonAddCar
             // 
-            this.buttonAddCar.Location = new System.Drawing.Point(51, 30);
+            this.buttonAddCar.Location = new System.Drawing.Point(12, 13);
             this.buttonAddCar.Name = "buttonAddCar";
-            this.buttonAddCar.Size = new System.Drawing.Size(185, 56);
+            this.buttonAddCar.Size = new System.Drawing.Size(161, 56);
             this.buttonAddCar.TabIndex = 1;
-            this.buttonAddCar.Text = "button2";
+            this.buttonAddCar.Text = "Cars";
             this.buttonAddCar.UseVisualStyleBackColor = true;
             this.buttonAddCar.Click += new System.EventHandler(this.buttonAddCar_Click);
             // 

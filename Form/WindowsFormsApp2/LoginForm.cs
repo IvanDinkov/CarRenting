@@ -22,7 +22,7 @@ namespace WindowsFormsApp2
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         private void LoginClear()
@@ -35,35 +35,15 @@ namespace WindowsFormsApp2
         {
             var username = UsernameBox.Text;
             var password = PasswordBox.Text;
-            if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password))
+            StringBuilder ValidationsError = new StringBuilder();
+            Business.LoginFunctions.LoginValidation(ValidationsError, username, password);
+            if (Business.LoginFunctions.LoggedIn)
             {
-                MessageBox.Show("Username or Password cannot be empty!");
-                LoginClear();
+                LoggedIn();
             }
             else
             {
-                SqlConnection connection = new SqlConnection(Data.Connection.CONNECTION_STRING);
-                connection.Open();
-
-                using (connection)
-                {
-                    string LoginCheckCommand = "select * from CarRenting.dbo.accounts where username = @username and password = @password;";
-                    using (SqlCommand login = new SqlCommand(LoginCheckCommand, connection))
-                    {
-                        login.Parameters.AddWithValue("@username", username);
-                        login.Parameters.AddWithValue("@password", password);
-                        SqlDataReader reader = login.ExecuteReader();
-                        if (reader.HasRows)
-                        {
-                            LoggedIn();
-                        }
-                        else
-                        {
-                            MessageBox.Show("Wrong username or password. Please try again!");
-                            LoginClear();
-                        }
-                    }
-                }
+                MessageBox.Show(ValidationsError.ToString());
             }
         }
 
@@ -83,11 +63,6 @@ namespace WindowsFormsApp2
         private void LoggedIn()
         {
             MessageBox.Show("Logged in sucessfully!");
-            //LoginForm login = new LoginForm();
-            //login.Close();
-            //LoginClear();
-            //MainForm LoggedIn = new MainForm();
-            //LoggedIn.Show();
             this.Hide();
             MainForm MainForm = new MainForm();
             MainForm.Closed += (s, args) => this.Close();
