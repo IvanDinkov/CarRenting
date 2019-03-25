@@ -40,9 +40,9 @@ namespace WindowsFormsApp2
         }
         private void backgroundImageLoader()
         {
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; i < 4; i++)
             {
-                imageCollection[i] = Image.FromFile($"C:\\Users\\User\\Desktop\\zdr0\\CarRenting\\Images\\MainForm Backgrounds\\Image{i}.jpg");
+                imageCollection[i] = Image.FromFile($"C:\\Users\\kinib\\Desktop\\Project\\CarRenting\\Images\\MainForm Backgrounds\\Image{i}.jpg");
             }
         }
         private void countChecker()
