@@ -42,7 +42,7 @@ namespace WindowsFormsApp2
         {
             for (int i = 0; i < 4; i++)
             {
-                imageCollection[i] = Image.FromFile($"C:\\Users\\kinib\\Desktop\\Project\\CarRenting\\Images\\MainForm Backgrounds\\Image{i}.jpg");
+                imageCollection[i] = Image.FromFile($"C:\\Users\\User\\Desktop\\Car Renting new cars form\\CarRenting\\Images\\MainForm Backgrounds\\Image{i}.jpg");
             }
         }
         private void countChecker()

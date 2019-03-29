@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApp2.Models;
+using System.Data.SqlClient;
 
 
 namespace WindowsFormsApp2
@@ -52,10 +53,44 @@ namespace WindowsFormsApp2
             lblSeatCount.Text = "Seats: " + list[selectedItem].SeatCount.ToString();
             lblTransmission.Text ="Transmission:" + list[selectedItem].Transmission.ToString();
             pictureBox1.Image = (Image)new ImageConverter().ConvertFrom(list[selectedItem].Picture);
+            if (list[selectedItem].TakenBy.ToString() == "")
+            {
+                lblStatus.Text = "Status: Free";
+            }
+            else
+            {
+                lblStatus.Text =  "Status: Occupied";
+            }
         }
         private void btnRent_Click(object sender, EventArgs e)
-        {
-            
+        {        
+            if (lblStatus.Text == "Status: Free")
+            {
+
+                var idOfUser = Data.LoggedInAccountID.ID;
+                var selectedItem = list.FindIndex(w => w.Brand + " " + w.Model == comboBox1.SelectedItem.ToString());
+                int idSelectedCar = list[selectedItem].Id;
+                SqlConnection sqlCon = new SqlConnection(Data.Connection.CONNECTION_STRING);
+                sqlCon.Open();
+
+                using (sqlCon)
+                {
+                    SqlCommand sqlCom = new SqlCommand("update CarRenting.dbo.cars set taken_by = @id where id = @brand  ", sqlCon);
+                    sqlCom.Parameters.AddWithValue("@id", idOfUser);
+                    sqlCom.Parameters.AddWithValue("@brand", idSelectedCar);
+                    sqlCom.ExecuteNonQuery();
+                }
+                sqlCon.Close();
+                lblStatus.Text = "Occupied";
+                MessageBox.Show("Car rented successfully");
+                
+            }
+            else
+            {
+                MessageBox.Show("The car is already being occupied");
+                
+            }
+
         }
     }
 }
