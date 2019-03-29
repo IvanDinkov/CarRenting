@@ -218,6 +218,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CarInfo.cs" />
+    <Compile Include="ChangeEmailFunction.cs" />
+    <Compile Include="ChangePassFunction.cs" />
+    <Compile Include="CheckLoggedInID.cs" />
     <Compile Include="RegisterFunctions.cs" />
     <Compile Include="LoginFunctions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

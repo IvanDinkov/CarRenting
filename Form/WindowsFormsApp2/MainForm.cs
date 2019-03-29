@@ -42,7 +42,7 @@ namespace WindowsFormsApp2
         {
             for (int i = 0; i < 4; i++)
             {
-                imageCollection[i] = Image.FromFile($"C:\\Users\\User\\Desktop\\Car Renting new cars form\\CarRenting\\Images\\MainForm Backgrounds\\Image{i}.jpg");
+                imageCollection[i] = Image.FromFile($"C:\\Users\\kinib\\Desktop\\Project\\CarRenting\\Images\\MainForm Backgrounds\\Image{i}.jpg");
             }
         }
         private void countChecker()
@@ -54,6 +54,7 @@ namespace WindowsFormsApp2
         }
         private void button1_Click(object sender, EventArgs e)
         {
+            Data.LoggedInAccountID.ID = 0;
             this.Hide();
             LoginForm form = new LoginForm();
             form.Closed += (s, args) => this.Close();
@@ -64,6 +65,12 @@ namespace WindowsFormsApp2
         {
             Cars cars = new Cars();
             cars.Show();
+        }
+
+        private void AccSettings_Click(object sender, EventArgs e)
+        {
+            AccountSettingsForm accountSettingsForm = new AccountSettingsForm();
+            accountSettingsForm.Show();
         }
     }
 }
