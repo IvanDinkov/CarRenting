@@ -15,8 +15,8 @@ namespace WindowsFormsApp2
 {
     public partial class Cars : Form
     {
-        private static CarRentingContext context = new CarRentingContext();
-        private List<Models.Cars> list = context.Cars.ToList();
+        private static CarRentingContext context;
+        private List<Models.Cars> list;
 
         public Cars()
         {
@@ -25,11 +25,8 @@ namespace WindowsFormsApp2
 
         private void Cars_Load(object sender, EventArgs e)
         {
-            LoadCars();
-        }
-
-        private void LoadCars()
-        {
+            context = new CarRentingContext();
+            list = context.Cars.ToList();
             LoadRentableCars();
         }
 
@@ -73,13 +70,16 @@ namespace WindowsFormsApp2
                 var selectedItem = list.FindIndex(w => w.Brand + " " + w.Model == comboBox1.SelectedItem.ToString());
                 Business.RentingFunction.Rent(selectedItem);
                 lblStatus.Text = "Status: Occupied";
-                MessageBox.Show("Car rented successfully");                
+                this.Close();
+                Cars cars = new Cars();
+                cars.Location = new Point(0,0);
+                cars.Show();
+                MessageBox.Show("Car rented successfully");
             }
             else
             {
                 MessageBox.Show("The car is already occupied.");                
             }
-
         }
     }
 }

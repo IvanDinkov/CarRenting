@@ -20,8 +20,8 @@ namespace WindowsFormsApp2
 
         private void AccountSettingsForm_Load(object sender, EventArgs e)
         {
-            lblEmail.Text = Business.ChangePassFunction.GetEmail();
-            lblName.Text = Business.ChangePassFunction.GetName();
+            lblEmail.Text = Data.GetEmail.GetMail();
+            lblName.Text = Data.GetName.GetFirstAndLastName();
         }
 
         private void btnChangePass_Click(object sender, EventArgs e)
@@ -37,7 +37,7 @@ namespace WindowsFormsApp2
             {
                 MessageBox.Show("New Passwords do not match.");
             }
-            else if (!oldPass.Equals(Business.ChangePassFunction.GetPass()))
+            else if (!oldPass.Equals(Data.GetPass.GetPassword()))
             {
                 MessageBox.Show("Old Password is incorrect.");
             }
@@ -48,6 +48,9 @@ namespace WindowsFormsApp2
             else
             {
                 Business.ChangePassFunction.ChangePass(newPass1);
+                txtOldPass.Clear();
+                txtNewPass1.Clear();
+                txtNewPass2.Clear();
                 MessageBox.Show("Password changed succesfully!");
             }
 
@@ -67,6 +70,7 @@ namespace WindowsFormsApp2
             else
             {
                 Business.ChangeEmailFunction.ChangeEmail(newEmail);
+                txtNewEmail.Clear();
                 MessageBox.Show("Email changed succesfully!");
             }
 

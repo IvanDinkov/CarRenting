@@ -72,6 +72,7 @@
             this.RentedCars.TabIndex = 3;
             this.RentedCars.Text = "Rented Cars";
             this.RentedCars.UseVisualStyleBackColor = true;
+            this.RentedCars.Click += new System.EventHandler(this.RentedCars_Click);
             // 
             // MainForm
             // 

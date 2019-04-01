@@ -219,6 +219,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Connection.cs" />
+    <Compile Include="GetEmail.cs" />
+    <Compile Include="GetName.cs" />
+    <Compile Include="GetPass.cs" />
     <Compile Include="LoggedInAccountID.cs" />
     <Compile Include="Models\Accounts.cs" />
     <Compile Include="Models\CarRentingContext.cs" />

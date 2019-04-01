@@ -8,22 +8,19 @@ using WindowsFormsApp2.Models;
 
 namespace Business
 {
-    public static class RentingFunction
+    public class RemoveRentedCarFunction
     {
         private static CarRentingContext context = new CarRentingContext();
         private static List<Cars> list = context.Cars.ToList();
-        public static void Rent(int selectedItem)
+        public static void Remove(string selectedItem)
         {
-            var idOfUser = Data.LoggedInAccountID.ID;            
-            int idSelectedCar = list[selectedItem].Id;
             SqlConnection sqlCon = new SqlConnection(Data.Connection.CONNECTION_STRING);
             sqlCon.Open();
 
             using (sqlCon)
             {
-                SqlCommand sqlCom = new SqlCommand("update CarRenting.dbo.cars set taken_by = @id where id = @CarID  ", sqlCon);
-                sqlCom.Parameters.AddWithValue("@id", idOfUser);
-                sqlCom.Parameters.AddWithValue("@CarID", idSelectedCar);
+                SqlCommand sqlCom = new SqlCommand("update CarRenting.dbo.cars set taken_by = null where model = @CarModel;", sqlCon);
+                sqlCom.Parameters.AddWithValue("@CarModel", selectedItem);
                 sqlCom.ExecuteNonQuery();
             }
             sqlCon.Close();

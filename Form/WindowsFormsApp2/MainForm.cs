@@ -21,6 +21,7 @@ namespace WindowsFormsApp2
         Image[] imageCollection = new Image[5];
         private void MainForm_Load(object sender, EventArgs e)
         {
+            PreloadForms();
             backgroundImageLoader();
             this.BackgroundImage = imageCollection[3];
             timer.Tick += new System.EventHandler(OnTimerEvent);
@@ -28,6 +29,7 @@ namespace WindowsFormsApp2
         }
         private void OnTimerEvent(object sender, EventArgs e)
         {
+            PreloadForms();
             this.BackgroundImage = imageCollection[counter];
             counter++;
             countChecker();
@@ -71,6 +73,18 @@ namespace WindowsFormsApp2
         {
             AccountSettingsForm accountSettingsForm = new AccountSettingsForm();
             accountSettingsForm.Show();
+        }
+
+        private void RentedCars_Click(object sender, EventArgs e)
+        {
+            RentedCars cars = new RentedCars();
+            cars.Show();
+        }
+
+        private void PreloadForms()
+        {
+            Cars cars = new Cars();
+            RentedCars rentedCars = new RentedCars();
         }
     }
 }
