@@ -10,18 +10,19 @@ namespace Business
     {
         //This method checks if the new email is valid
         public static void ChangeEmailValid(StringBuilder ValidationsErrors, string NewEmail)
-        {
-            if (!CheckLoggedInID.IDCheck())
-            {
-                ValidationsErrors.AppendLine("You can't change your email now.");
-            }
-            else if (string.IsNullOrWhiteSpace(NewEmail))
+        {            
+            if (string.IsNullOrWhiteSpace(NewEmail))
             {
                 ValidationsErrors.AppendLine("Email box can not be empty.");
-            }
+            }            
             else if (NewEmail.Length < 5)
             {
                 ValidationsErrors.AppendLine("This is not a valid email.");
+            }
+
+            else if (!CheckLoggedInID.IDCheck())
+            {
+                ValidationsErrors.AppendLine("You can't change your email now.");
             }
         }
     }

@@ -36,8 +36,8 @@ namespace WindowsFormsApp2
             var username = UsernameBox.Text;
             var password = PasswordBox.Text;
             StringBuilder ValidationsError = new StringBuilder();
-            Business.LoginFunctions.LoginValidation(ValidationsError, username, password);
-            if (Business.LoginFunctions.LoggedIn)
+            Business.LoginValidations.LoginValidation(ValidationsError, username, password);
+            if (Business.LoginValidations.LoggedIn)
             {
                 LoggedIn();
             }

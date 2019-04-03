@@ -7,7 +7,7 @@ using System.Data.SqlClient;
 
 namespace Business
 {
-    public class LoginFunctions
+    public class LoginValidations
     {
         public static bool LoggedIn { get; private set; }
         //This method checks if the username and password are valid in the application

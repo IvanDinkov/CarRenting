@@ -28,7 +28,7 @@ namespace WindowsFormsApp2
             string Email = txtEmail.Text;
 
             StringBuilder failedValidations = new StringBuilder(500);
-            Business.RegisterFunctions.fullValidation(failedValidations, Username, Firstname, Lastname, Password, ConfirmPassword, Email);
+            Business.RegisterValidations.fullValidation(failedValidations, Username, Firstname, Lastname, Password, ConfirmPassword, Email);
             if (failedValidations.ToString() == "")
             {
                Data.RegisterInDB.SuccessfulValidation(Firstname, Lastname, Username, Password, Email);

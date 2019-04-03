@@ -7,7 +7,7 @@ using System.Data.SqlClient;
 
 namespace Business
 {
-    public class RegisterFunctions
+    public class RegisterValidations
     {
         //This method calls all the validations
         public static void fullValidation(StringBuilder validation, string username, string firstname, string lastname, string password, string confirmedPassword, string email)

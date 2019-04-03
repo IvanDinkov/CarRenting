@@ -225,8 +225,8 @@
     <Compile Include="ChangeEmailValidations.cs" />
     <Compile Include="ChangePassValidations.cs" />
     <Compile Include="CheckLoggedInID.cs" />
-    <Compile Include="RegisterFunctions.cs" />
-    <Compile Include="LoginFunctions.cs" />
+    <Compile Include="RegisterValidations.cs" />
+    <Compile Include="LoginValidations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
