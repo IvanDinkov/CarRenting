@@ -24,7 +24,7 @@ namespace WindowsFormsApp2
         {
             LoadRentedCars();
         }
-
+        //This method loads the currently rented cars of the user who is logged in
         private void LoadRentedCars()
         {
             foreach (var item in list)
@@ -32,7 +32,7 @@ namespace WindowsFormsApp2
                 comboBox1.Items.Add(item.Brand + " " + item.Model);
             }
         }
-
+        //This method puts the car's info into the labels
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             var selectedItem = list.FindIndex(w => w.Brand + " " + w.Model == comboBox1.SelectedItem.ToString());
@@ -46,13 +46,13 @@ namespace WindowsFormsApp2
             lblTransmission.Text = "Transmission:" + list[selectedItem].Transmission.ToString();
             pictureBox1.Image = (Image)new ImageConverter().ConvertFrom(list[selectedItem].Picture);
         }
-
+        //This method gets the model of the selected car and sends it over to the remove method to remove the car
         private void btnRemove_Click(object sender, EventArgs e)
         {
 
             var selectedItem = list.FindIndex(w => w.Brand + " " + w.Model == comboBox1.SelectedItem.ToString());
             string model = list[selectedItem].Model;
-            Business.RemoveRentedCarFunction.Remove(model);
+            Data.RemoveRentedCarInDB.Remove(model);
             comboBox1.Items.Remove(selectedItem);
             RentedCars rented = new RentedCars();
             this.Close();

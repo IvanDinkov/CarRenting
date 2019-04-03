@@ -13,6 +13,7 @@ namespace WindowsFormsApp2
 {
     public partial class AccountSettingsForm : Form
     {
+        StringBuilder validationErrors = new StringBuilder();
         public AccountSettingsForm()
         {
             InitializeComponent();
@@ -23,57 +24,43 @@ namespace WindowsFormsApp2
             lblEmail.Text = Data.GetEmail.GetMail();
             lblName.Text = Data.GetName.GetFirstAndLastName();
         }
-
+        //This method calls the validations for the password change function and then changes the password if the validations have passed
         private void btnChangePass_Click(object sender, EventArgs e)
         {
+            validationErrors.Clear();
             string oldPass = txtOldPass.Text;
             string newPass1 = txtNewPass1.Text;
             string newPass2 = txtNewPass2.Text;
-            if (!Business.CheckLoggedInID.IDCheck())
+            Business.ChangePassValidations.ChangePass(validationErrors, oldPass, newPass1, newPass2);
+            if (validationErrors.ToString() == "")
             {
-                MessageBox.Show("You can't change your password now.");
-            }
-            else if (!newPass1.Equals(txtNewPass2.Text))
-            {
-                MessageBox.Show("New Passwords do not match.");
-            }
-            else if (!oldPass.Equals(Data.GetPass.GetPassword()))
-            {
-                MessageBox.Show("Old Password is incorrect.");
-            }
-            else if (string.IsNullOrWhiteSpace(txtOldPass.Text) || string.IsNullOrWhiteSpace(txtNewPass1.Text))
-            {
-                MessageBox.Show("Password box can not be empty.");
-            }
-            else
-            {
-                Business.ChangePassFunction.ChangePass(newPass1);
+                Data.ChangePassInDB.ChangePassInDataBase(newPass1);
                 txtOldPass.Clear();
                 txtNewPass1.Clear();
                 txtNewPass2.Clear();
                 MessageBox.Show("Password changed succesfully!");
             }
-
-        }
-
-        private void btnChangeEmail_Click(object sender, EventArgs e)
-        {
-            string newEmail = txtNewEmail.Text;
-            if (!Business.CheckLoggedInID.IDCheck())
-            {
-                MessageBox.Show("You can't change your email now.");
-            }
-            else if (string.IsNullOrWhiteSpace(txtNewEmail.Text))
-            {
-                MessageBox.Show("Email box can not be empty.");
-            }
             else
             {
-                Business.ChangeEmailFunction.ChangeEmail(newEmail);
+                MessageBox.Show(validationErrors.ToString());
+            }
+        }
+        //This method calls the validations for changing email and if they pass, changes the email
+        private void btnChangeEmail_Click(object sender, EventArgs e)
+        {
+            validationErrors.Clear();
+            string newEmail = txtNewEmail.Text;
+            Business.ChangeEmailValidations.ChangeEmailValid(validationErrors, newEmail);
+            if (validationErrors.ToString() == "")
+            {
+                Data.ChangeEmailInDB.ChangeEmail(newEmail);
                 txtNewEmail.Clear();
                 MessageBox.Show("Email changed succesfully!");
             }
-
+            else
+            {
+                MessageBox.Show(validationErrors.ToString());
+            }
         }
     }
 }

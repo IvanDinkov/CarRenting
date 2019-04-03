@@ -5,10 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 
-namespace Business
+namespace Data
 {
-    public static class ChangeEmailFunction
+    public class ChangeEmailInDB
     {
+        //This method changes the email in the Database
         public static void ChangeEmail(string newEmail)
         {
             SqlConnection connection = new SqlConnection(Data.Connection.CONNECTION_STRING);

@@ -10,6 +10,7 @@ namespace Business
     public class LoginFunctions
     {
         public static bool LoggedIn { get; private set; }
+        //This method checks if the username and password are valid in the application
         public static void LoginValidation(StringBuilder validations, string username, string password)
         {
             username = username.Trim(' ', '.', '[', ']', '\'', '\"');
@@ -28,6 +29,7 @@ namespace Business
                 LoginValidationInDB(validations, username, password);
             }
         }
+        //This method checks if the login credentials are present in the database
         private static void LoginValidationInDB(StringBuilder validation, string username, string password)
         {
             SqlConnection connection = new SqlConnection(Data.Connection.CONNECTION_STRING);

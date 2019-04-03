@@ -3,15 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Data.SqlClient;
 using WindowsFormsApp2.Models;
+using System.Data.SqlClient;
 
-namespace Business
+namespace Data
 {
-    public class RemoveRentedCarFunction
+    public class RemoveRentedCarInDB
     {
         private static CarRentingContext context = new CarRentingContext();
         private static List<Cars> list = context.Cars.ToList();
+        //This method nulls the taken_by column of the current car
         public static void Remove(string selectedItem)
         {
             SqlConnection sqlCon = new SqlConnection(Data.Connection.CONNECTION_STRING);

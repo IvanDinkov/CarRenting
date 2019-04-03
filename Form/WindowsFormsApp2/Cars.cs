@@ -29,7 +29,7 @@ namespace WindowsFormsApp2
             list = context.Cars.ToList();
             LoadRentableCars();
         }
-
+        //This method loads all the cars from the database into the combobox
         private void LoadRentableCars()
         {
             foreach (var item in list)
@@ -37,7 +37,7 @@ namespace WindowsFormsApp2
                 comboBox1.Items.Add(item.Brand + " " + item.Model);
             } 
         }
-
+        //This method adds car's info into the labels when a car is chosen
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             var selectedItem = list.FindIndex(w =>w.Brand + " " + w.Model == comboBox1.SelectedItem.ToString());
@@ -59,6 +59,7 @@ namespace WindowsFormsApp2
                 lblStatus.Text =  "Status: Occupied";
             }
         }
+        //This method checks if the car is free and calls the rent method
         private void btnRent_Click(object sender, EventArgs e)
         {
             if (!Business.CheckLoggedInID.IDCheck())
@@ -68,7 +69,7 @@ namespace WindowsFormsApp2
             else if (lblStatus.Text == "Status: Free")
             {
                 var selectedItem = list.FindIndex(w => w.Brand + " " + w.Model == comboBox1.SelectedItem.ToString());
-                Business.RentingFunction.Rent(selectedItem);
+                Data.RentingInDB.Rent(selectedItem);
                 lblStatus.Text = "Status: Occupied";
                 this.Close();
                 Cars cars = new Cars();

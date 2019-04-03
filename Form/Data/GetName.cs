@@ -9,6 +9,7 @@ namespace Data
 {
     public class GetName
     {
+        //This method checks the first and last name of the currently logged in user by the recorded ID
         public static string GetFirstAndLastName()
         {
             string name = "";

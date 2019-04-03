@@ -9,6 +9,7 @@ namespace Data
 {
     public class GetPass
     {
+        //This method gets the password of the currently logged in user
         public static string GetPassword()
         {
             string password = "";

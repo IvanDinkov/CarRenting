@@ -5,11 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 
-namespace Business
+namespace Data
 {
-    public static class ChangePassFunction
+    public class ChangePassInDB
     {
-        public static void ChangePass(string newPassword)
+        //This method changes the password in the database with the new one
+        public static void ChangePassInDataBase(string newPassword)
         {
             SqlConnection connection = new SqlConnection(Data.Connection.CONNECTION_STRING);
             string commandString = "update CarRenting.dbo.accounts set password = @newpass where id = @id";

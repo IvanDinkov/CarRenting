@@ -24,13 +24,13 @@ namespace WindowsFormsApp2
         {
 
         }
-
+        //This method clears the input boxes
         private void LoginClear()
         {
             UsernameBox.Clear();
             PasswordBox.Clear();
         }
-
+        //This method calls the login validations and if they pass, calls the sucessful login method
         private void LoginBtn_Click(object sender, EventArgs e)
         {
             var username = UsernameBox.Text;
@@ -46,12 +46,12 @@ namespace WindowsFormsApp2
                 MessageBox.Show(ValidationsError.ToString());
             }
         }
-
+        //This method closes the whole program
         private void ExitBtn_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
+        //This method opens the register form and closes login form
         private void RegisterBtn_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -59,7 +59,7 @@ namespace WindowsFormsApp2
             reg.Closed += (s, args) => this.Close();
             reg.Show();
         }
-
+        //This method closes the login form after a sucessful login
         private void LoggedIn()
         {
             MessageBox.Show("Logged in sucessfully!");

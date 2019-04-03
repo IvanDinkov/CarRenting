@@ -17,7 +17,7 @@ namespace WindowsFormsApp2
         {
             InitializeComponent();
         }
-
+        //This method calls the register validations and if they pass, calls the sucessful register method
         private void RegisterBtn_Click(object sender, EventArgs e)
         {
             string Username = txtUsername.Text;
@@ -31,7 +31,7 @@ namespace WindowsFormsApp2
             Business.RegisterFunctions.fullValidation(failedValidations, Username, Firstname, Lastname, Password, ConfirmPassword, Email);
             if (failedValidations.ToString() == "")
             {
-                Business.RegisterFunctions.SuccessfulValidation(Firstname, Lastname, Username, Password, Email);
+               Data.RegisterInDB.SuccessfulValidation(Firstname, Lastname, Username, Password, Email);
 
                 MessageBox.Show("Registered sucessfully!");
 
@@ -45,7 +45,7 @@ namespace WindowsFormsApp2
                 MessageBox.Show(failedValidations.ToString());
             }
         }
-
+        //This method clears the input boxes
         private void ClearBtn_Click(object sender, EventArgs e)
         {
             txtUsername.Clear();
@@ -55,7 +55,7 @@ namespace WindowsFormsApp2
             txtConfPassword.Clear();
             txtEmail.Clear();
         }
-
+        //This method closes the register form and opens the login form
         private void BackBtn_Click(object sender, EventArgs e)
         {
             this.Hide();

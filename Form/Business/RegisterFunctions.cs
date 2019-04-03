@@ -9,24 +9,7 @@ namespace Business
 {
     public class RegisterFunctions
     {
-        public static void SuccessfulValidation(string Firstname, string Lastname, string Username, string Password, string Email)
-        {
-            SqlConnection sqlCon = new SqlConnection(Data.Connection.CONNECTION_STRING);
-            sqlCon.Open();
-
-            using (sqlCon)
-            {
-                SqlCommand sqlCom = new SqlCommand("Insert into CarRenting.dbo.accounts (Firstname,Lastname,Username,Password, Email) values (@Firstname, @Lastname, @Username, @Password, @Email)", sqlCon);
-                sqlCom.Parameters.AddWithValue("@Firstname", Firstname);
-                sqlCom.Parameters.AddWithValue("@Lastname", Lastname);
-                sqlCom.Parameters.AddWithValue("@Username", Username);
-                sqlCom.Parameters.AddWithValue("@Password", Password);
-                sqlCom.Parameters.AddWithValue("@Email", Email);
-                sqlCom.ExecuteNonQuery();
-            }
-            sqlCon.Close();
-        }
-
+        //This method calls all the validations
         public static void fullValidation(StringBuilder validation, string username, string firstname, string lastname, string password, string confirmedPassword, string email)
         {
             NamesValidation(validation, firstname);
@@ -34,7 +17,7 @@ namespace Business
             PasswordValidation(validation, password, confirmedPassword);
             UsernameAndEmailValidation(validation, username, email);
         }
-
+        //This method checks if the name is valid
         private static void NamesValidation(StringBuilder validation, string name)
         {
             if (string.IsNullOrWhiteSpace(name) || name.Length < 3)
@@ -42,7 +25,7 @@ namespace Business
                 validation.AppendLine("First/Last name should be longer.");
             }
         }
-
+        //This method checks if the password is valid
         private static void PasswordValidation(StringBuilder validation, string Password, string secondPassword)
         {
             if (Password.Length < 5)
@@ -58,7 +41,7 @@ namespace Business
                 validation.AppendLine("Passwords don't match.");
             }
         }
-
+        //This method checks if the username and email are valid in the application
         private static void UsernameAndEmailValidation(StringBuilder validation, string username, string email)
         {
             if (string.IsNullOrWhiteSpace(username) || username.Length < 3)
@@ -74,7 +57,7 @@ namespace Business
                 DBEmailAndUsernameCheck(validation, username, email);
             }
         }
-
+        //This method checks if the email and username are being used by another user
         private static void DBEmailAndUsernameCheck(StringBuilder validation, string username, string email)
         {
             bool freeUsername = false;

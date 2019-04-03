@@ -218,6 +218,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChangeEmailInDB.cs" />
+    <Compile Include="ChangePassInDB.cs" />
     <Compile Include="Connection.cs" />
     <Compile Include="GetEmail.cs" />
     <Compile Include="GetName.cs" />
@@ -227,6 +229,9 @@
     <Compile Include="Models\CarRentingContext.cs" />
     <Compile Include="Models\Cars.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RegisterInDB.cs" />
+    <Compile Include="RemoveRentedCarInDB.cs" />
+    <Compile Include="RentingInDB.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -9,6 +9,7 @@ namespace Data
 {
     public class GetEmail
     {
+        //This method oversees the email of the currently logged in user by his ID
         public static string GetMail()
         {
             string email = "";
