@@ -32,6 +32,7 @@
             this.buttonAddCar = new System.Windows.Forms.Button();
             this.AccSettings = new System.Windows.Forms.Button();
             this.RentedCars = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
@@ -74,12 +75,23 @@
             this.RentedCars.UseVisualStyleBackColor = true;
             this.RentedCars.Click += new System.EventHandler(this.RentedCars_Click);
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(611, 489);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(161, 55);
+            this.button2.TabIndex = 5;
+            this.button2.Text = "About us";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(824, 577);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.RentedCars);
             this.Controls.Add(this.AccSettings);
             this.Controls.Add(this.buttonAddCar);
@@ -99,5 +111,6 @@
         private System.Windows.Forms.Button buttonAddCar;
         private System.Windows.Forms.Button AccSettings;
         private System.Windows.Forms.Button RentedCars;
+        private System.Windows.Forms.Button button2;
     }
 }
