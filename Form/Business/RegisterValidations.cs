@@ -28,14 +28,15 @@ namespace Business
         //This method checks if the password is valid
         private static void PasswordValidation(StringBuilder validation, string Password, string secondPassword)
         {
-            if (Password.Length < 5)
-            {
-                validation.AppendLine("Password should be longer.");
-            }
-            else if (string.IsNullOrWhiteSpace(Password))
+             if (string.IsNullOrWhiteSpace(Password))
             {
                 validation.AppendLine("Password shouldn't be empty.");
             }
+            else if (Password.Length < 5)
+            {
+                validation.AppendLine("Password should be longer.");
+            }
+            
             if (Password != secondPassword)
             {
                 validation.AppendLine("Passwords don't match.");

@@ -59,8 +59,10 @@
   <ItemGroup>
     <Compile Include="ChangeEmailValidationsUnitTests.cs" />
     <Compile Include="CheckLoggedInIDUnitTest.cs" />
+    <Compile Include="CheckPassValidationUnitTest.cs" />
     <Compile Include="LoginValidationsUnitTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RegisterValidationUnitTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

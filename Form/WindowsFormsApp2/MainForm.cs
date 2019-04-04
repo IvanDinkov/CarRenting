@@ -47,7 +47,7 @@ namespace WindowsFormsApp2
         {
             for (int i = 0; i < 4; i++)
             {
-                imageCollection[i] = Image.FromFile($"C:\\Users\\kinib\\Desktop\\Project\\CarRenting\\Images\\MainForm Backgrounds\\Image{i}.jpg");
+                imageCollection[i] = Image.FromFile($"C:\\Users\\User\\Desktop\\RentingSite\\CarRenting\\Images\\MainForm Backgrounds\\Image{i}.jpg");
             }
         }
         //This method checks for the background images that have already gone so it repeats in the end

@@ -31,7 +31,8 @@ namespace Business
             else if (NewPass.Length < 5)
             {
                 validationSB.AppendLine("Password should be longer.");
-            }   
+            }
+            
         }
     }
 }
