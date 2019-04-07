@@ -35,16 +35,18 @@
             // 
             // label1
             // 
+            this.label1.BackColor = System.Drawing.SystemColors.HighlightText;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label1.Location = new System.Drawing.Point(21, 26);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(314, 220);
             this.label1.TabIndex = 1;
             this.label1.Text = resources.GetString("label1.Text");
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(214, 249);
+            this.button1.Location = new System.Drawing.Point(226, 249);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(109, 38);
             this.button1.TabIndex = 2;
@@ -56,6 +58,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(358, 317);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);

@@ -61,7 +61,7 @@ namespace WindowsFormsApp2
         //This method logs off of account and nulls the recorded ID
         private void button1_Click(object sender, EventArgs e)
         {
-            Data.LoggedInAccountID.ID = 0;
+            Business.LogOut.Logout();
             this.Hide();
             LoginForm form = new LoginForm();
             form.Closed += (s, args) => this.Close();

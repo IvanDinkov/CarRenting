@@ -63,7 +63,7 @@ namespace Business
         {
             bool freeUsername = false;
             bool freeEmail = false;
-            string usernameCommandCheck = $"Select * from CarRenting.dbo.accounts where username = '{username}';";
+            string usernameCommandCheck = $"Select id from CarRenting.dbo.accounts where username = '{username}';";
             SqlConnection con = new SqlConnection(Data.Connection.CONNECTION_STRING);
             con.Open();
             using (con)

@@ -19,8 +19,9 @@ namespace UnitTestProject1
         public void CheckIDWithLoggingIn()
         {
             StringBuilder validationErrors = new StringBuilder();
-            Business.LoginValidations.LoginValidation(validationErrors, validUsernameInDB, validPasswordInDB);
+            Business.LoginValidations.LoginValidation(validationErrors, validUsernameInDB, validPasswordInDB);            
             Assert.IsTrue(Business.CheckLoggedInID.IDCheck());
+            Business.LogOut.Logout();
         }
     }
 }

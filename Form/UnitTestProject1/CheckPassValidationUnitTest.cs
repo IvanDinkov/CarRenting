@@ -23,6 +23,7 @@ namespace UnitTestProject1
             StringBuilder expected = new StringBuilder();
             expected.AppendLine("You can't change password at the moment.");
             Business.ChangePassValidations.ChangePass(notLoggedInUser, validPasswordInDB, "qwe", "qwe");
+            Business.LogOut.Logout();
             notLoggedInUser.ToString().Should().Be(expected.ToString());
         }
         [TestMethod]
@@ -33,6 +34,7 @@ namespace UnitTestProject1
             expected.AppendLine("Old password isn't correct.");
             Business.LoginValidations.LoginValidation(oldPasswordErrors, validUsernameInDB, validPasswordInDB);
             Business.ChangePassValidations.ChangePass(oldPasswordErrors, invalidOldPass, "QAZWSXEDC" , "QAZWSXEDC");
+            Business.LogOut.Logout();
             oldPasswordErrors.ToString().Should().Be(expected.ToString());
         }
         [TestMethod]
@@ -43,6 +45,7 @@ namespace UnitTestProject1
             expected.AppendLine("Passwords don't match.");
             Business.LoginValidations.LoginValidation(newPasswordsErrors, validUsernameInDB, validPasswordInDB);
             Business.ChangePassValidations.ChangePass(newPasswordsErrors, validPasswordInDB, "qwerty" , "qwertyu");
+            Business.LogOut.Logout();
             newPasswordsErrors.ToString().Should().Be(expected.ToString());
         }
         [TestMethod]
@@ -53,6 +56,7 @@ namespace UnitTestProject1
             expected.AppendLine("Password shouldn't be empty.");
             Business.LoginValidations.LoginValidation(newPasswordsErrors, validUsernameInDB, validPasswordInDB);
             Business.ChangePassValidations.ChangePass(newPasswordsErrors, validPasswordInDB, "", "");
+            Business.LogOut.Logout();
             newPasswordsErrors.ToString().Should().Be(expected.ToString());
         }
         [TestMethod]
@@ -63,6 +67,7 @@ namespace UnitTestProject1
             expected.AppendLine("Password should be longer.");
             Business.LoginValidations.LoginValidation(newPasswordsErrors, validUsernameInDB, validPasswordInDB);
             Business.ChangePassValidations.ChangePass(newPasswordsErrors, validPasswordInDB, "qwe", "qwe");
+            Business.LogOut.Logout();
             newPasswordsErrors.ToString().Should().Be(expected.ToString());            
         }
 

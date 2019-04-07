@@ -225,6 +225,7 @@
     <Compile Include="ChangeEmailValidations.cs" />
     <Compile Include="ChangePassValidations.cs" />
     <Compile Include="CheckLoggedInID.cs" />
+    <Compile Include="LogOut.cs" />
     <Compile Include="RegisterValidations.cs" />
     <Compile Include="LoginValidations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
