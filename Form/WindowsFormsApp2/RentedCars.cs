@@ -35,6 +35,7 @@ namespace WindowsFormsApp2
         //This method puts the car's info into the labels
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            btnRemove.Visible = true;
             var selectedItem = list.FindIndex(w => w.Brand + " " + w.Model == comboBox1.SelectedItem.ToString());
             lblBrand.Text = "Brand: " + list[selectedItem].Brand;
             lblCarType.Text = "Type: " + list[selectedItem].CarType;

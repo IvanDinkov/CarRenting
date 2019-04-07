@@ -131,6 +131,7 @@
             this.btnRemove.TabIndex = 24;
             this.btnRemove.Text = "Remove";
             this.btnRemove.UseVisualStyleBackColor = true;
+            this.btnRemove.Visible = false;
             this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
             // 
             // pictureBox1

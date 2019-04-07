@@ -40,6 +40,7 @@ namespace WindowsFormsApp2
         //This method adds car's info into the labels when a car is chosen
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            btnRent.Visible = true;
             var selectedItem = list.FindIndex(w =>w.Brand + " " + w.Model == comboBox1.SelectedItem.ToString());
             lblBrand.Text = "Brand: " + list[selectedItem].Brand;
             lblCarType.Text = "Type: " + list[selectedItem].CarType;
