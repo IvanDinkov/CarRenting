@@ -12,7 +12,7 @@ namespace Business
         //This method checks if the new password is valid
         public static void ChangePass(StringBuilder validationSB, string oldPass, string NewPass, string NewPass2)
         {
-            if (Data.LoggedInAccountID.ID == 0)
+            if (!CheckLoggedInID.IDCheck())
             {
                 validationSB.AppendLine("You can't change password at the moment.");
             }

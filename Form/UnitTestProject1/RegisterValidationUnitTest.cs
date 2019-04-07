@@ -7,9 +7,6 @@ using FluentAssertions;
 
 namespace UnitTestProject1
 {
-    /// <summary>
-    /// Summary description for RegisterValidationUnitTest
-    /// </summary>
     [TestClass]
     public class RegisterValidationUnitTest
     {
@@ -65,7 +62,7 @@ namespace UnitTestProject1
             StringBuilder alreadyUsedEmail = new StringBuilder();
             StringBuilder expected = new StringBuilder();
             expected.AppendLine("This E-mail is already in use.");
-            Business.RegisterValidations.fullValidation(alreadyUsedEmail, "q2345w", "ivancho", "ivanov", "12345678", "12345678", "qwertyuiop[");
+            Business.RegisterValidations.fullValidation(alreadyUsedEmail, "q2345w", "ivancho", "ivanov", "12345678", "12345678", "dont@delete.com");
             alreadyUsedEmail.ToString().Should().Be(expected.ToString());
         }
         [TestMethod]
@@ -74,7 +71,7 @@ namespace UnitTestProject1
             StringBuilder alreadyUsedUsername = new StringBuilder();
             StringBuilder expected = new StringBuilder();
             expected.AppendLine("This Username is already in use.");
-            Business.RegisterValidations.fullValidation(alreadyUsedUsername, "Dontdelete", "ivancho", "ivanov", "12345678", "12345678", "qwertyuiop[]");
+            Business.RegisterValidations.fullValidation(alreadyUsedUsername, "Dontdelete", "ivancho", "ivanov", "12345678", "12345678", "gosho39@abv.bg");
             alreadyUsedUsername.ToString().Should().Be(expected.ToString());
         }
     }

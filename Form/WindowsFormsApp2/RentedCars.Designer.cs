@@ -160,7 +160,7 @@
             this.Controls.Add(this.lblCarType);
             this.Controls.Add(this.lblBrand);
             this.Name = "RentedCars";
-            this.Text = "RentedCars";
+            this.Text = "Rented Cars";
             this.Load += new System.EventHandler(this.RentedCars_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

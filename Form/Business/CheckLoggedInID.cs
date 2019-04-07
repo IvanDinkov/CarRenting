@@ -12,7 +12,7 @@ namespace Business
         //This method checks if a user is logged in by checking the currently saved ID
         public static bool IDCheck()
         {
-            if (id == 0)
+            if (Data.LoggedInAccountID.ID == 0)
             {
                 return false;
             }

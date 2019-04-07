@@ -17,6 +17,15 @@ namespace UnitTestProject1
         string validPasswordInDB = "delete";
 
         [TestMethod]
+        public void TestWithNotLoggedInUser()
+        {
+            StringBuilder notLoggedInUser = new StringBuilder();
+            StringBuilder expected = new StringBuilder();
+            expected.AppendLine("You can't change password at the moment.");
+            Business.ChangePassValidations.ChangePass(notLoggedInUser, validPasswordInDB, "qwe", "qwe");
+            notLoggedInUser.ToString().Should().Be(expected.ToString());
+        }
+        [TestMethod]
         public void TestWithInvalidOldPassword()
         {
             StringBuilder oldPasswordErrors = new StringBuilder();
@@ -54,16 +63,8 @@ namespace UnitTestProject1
             expected.AppendLine("Password should be longer.");
             Business.LoginValidations.LoginValidation(newPasswordsErrors, validUsernameInDB, validPasswordInDB);
             Business.ChangePassValidations.ChangePass(newPasswordsErrors, validPasswordInDB, "qwe", "qwe");
-            newPasswordsErrors.ToString().Should().Be(expected.ToString());
+            newPasswordsErrors.ToString().Should().Be(expected.ToString());            
         }
-        [TestMethod]
-        public void TestWithNotLoggenInUser()
-        {
-            StringBuilder notLoggedInUser = new StringBuilder();
-            StringBuilder expected = new StringBuilder();
-            expected.AppendLine("You can't change password at the moment.");
-            Business.ChangePassValidations.ChangePass(notLoggedInUser, validPasswordInDB, "qwe", "qwe");
-            notLoggedInUser.ToString().Should().Be(expected.ToString());
-        }
+
     }
 }

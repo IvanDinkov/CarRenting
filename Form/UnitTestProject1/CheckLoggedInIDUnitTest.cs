@@ -5,9 +5,6 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace UnitTestProject1
 {
-    /// <summary>
-    /// Summary description for CheckLoggedInIDUnitTest
-    /// </summary>
     [TestClass]
     public class CheckLoggedInIDUnitTest
     {

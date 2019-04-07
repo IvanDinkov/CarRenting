@@ -99,7 +99,7 @@
             this.MaximumSize = new System.Drawing.Size(840, 616);
             this.MinimumSize = new System.Drawing.Size(840, 616);
             this.Name = "MainForm";
-            this.Text = "MainForm";
+            this.Text = "Car Renting Site";
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.ResumeLayout(false);
 

@@ -40,6 +40,10 @@
             this.btnChangePass = new System.Windows.Forms.Button();
             this.btnChangeEmail = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblName
@@ -92,7 +96,6 @@
             this.txtOldPass.Name = "txtOldPass";
             this.txtOldPass.Size = new System.Drawing.Size(131, 20);
             this.txtOldPass.TabIndex = 6;
-            this.txtOldPass.Text = "Old Password here";
             // 
             // txtNewPass1
             // 
@@ -100,7 +103,6 @@
             this.txtNewPass1.Name = "txtNewPass1";
             this.txtNewPass1.Size = new System.Drawing.Size(131, 20);
             this.txtNewPass1.TabIndex = 7;
-            this.txtNewPass1.Text = "New Password here";
             // 
             // txtNewPass2
             // 
@@ -108,7 +110,6 @@
             this.txtNewPass2.Name = "txtNewPass2";
             this.txtNewPass2.Size = new System.Drawing.Size(131, 20);
             this.txtNewPass2.TabIndex = 8;
-            this.txtNewPass2.Text = "Repeat New Password";
             // 
             // txtNewEmail
             // 
@@ -147,11 +148,51 @@
             this.label2.TabIndex = 12;
             this.label2.Text = "Change Email";
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(15, 101);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(75, 13);
+            this.label4.TabIndex = 13;
+            this.label4.Text = "Old Password:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(15, 142);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(81, 13);
+            this.label6.TabIndex = 14;
+            this.label6.Text = "New Password:";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(15, 180);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(119, 13);
+            this.label7.TabIndex = 15;
+            this.label7.Text = "Confirm New Password:";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(15, 279);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(60, 13);
+            this.label8.TabIndex = 16;
+            this.label8.Text = "New Email:";
+            // 
             // AccountSettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(261, 368);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnChangeEmail);
             this.Controls.Add(this.btnChangePass);
@@ -165,7 +206,7 @@
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.label1);
             this.Name = "AccountSettingsForm";
-            this.Text = "AccountSettingsForm";
+            this.Text = "Account Settings";
             this.Load += new System.EventHandler(this.AccountSettingsForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -186,5 +227,9 @@
         private System.Windows.Forms.Button btnChangePass;
         private System.Windows.Forms.Button btnChangeEmail;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
     }
 }
